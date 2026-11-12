@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Campus Guardian</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 70px;
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 35px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo-shield {
+    width: 38px;
+    height: 38px;
+
+    background: #2563eb;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links button {
+    border: none;
+    background: transparent;
+
+    color: #4b5563;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    padding: 8px 12px;
+
+    border-radius: 6px;
+}
+
+.nav-links button:hover {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 60px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef5ff 0%,
+            #ffffff 55%,
+            #f0fdf4 100%
+        );
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.badge {
+    display: inline-block;
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 52px;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero p {
+    color: #667085;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    max-width: 650px;
+
+    margin-bottom: 30px;
+}
+
+.primary-btn {
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 23px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    font-size: 15px;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+.secondary-btn {
+    background: white;
+
+    color: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    padding: 13px 23px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.section {
+    padding: 60px 7%;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #667085;
+}
+
+.features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.feature-card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e5e7eb;
+
+    transition: 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.08);
+}
+
+.feature-icon {
+    font-size: 35px;
+
+    margin-bottom: 18px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #667085;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    padding: 35px 6%;
+}
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+}
+
+.page-header p {
+    color: #667085;
+
+    margin-top: 8px;
+}
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+}
+
+.stat-title {
+    color: #667085;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+.stat-number {
+    font-size: 32px;
+
+    font-weight: bold;
+}
+
+.blue {
+    color: #2563eb;
+}
+
+.red {
+    color: #dc2626;
+}
+
+.orange {
+    color: #ea580c;
+}
+
+.green {
+    color: #16a34a;
+}
+
+
+/* =========================
+   REPORT FORM
+========================= */
+
+.form-wrapper {
+    max-width: 750px;
+
+    margin: 40px auto;
+
+    padding: 0 20px;
+}
+
+.form-card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-card h2 {
+    margin-bottom: 8px;
+}
+
+.form-card > p {
+    color: #667085;
+
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    padding: 13px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px #dbeafe;
+}
+
+textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   REPORT LIST
+========================= */
+
+.reports-container {
+    padding: 35px 6%;
+}
+
+.filters {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.filters input,
+.filters select {
+    max-width: 250px;
+}
+
+.report-list {
+    display: grid;
+
+    gap: 15px;
+}
+
+.report-card {
+    background: white;
+
+    padding: 23px;
+
+    border-radius: 13px;
+
+    border: 1px solid #e5e7eb;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.report-info h3 {
+    margin-bottom: 8px;
+}
+
+.report-info p {
+    color: #667085;
+
+    margin-bottom: 7px;
+}
+
+.report-meta {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.high {
+    background: #fee2e2;
+
+    color: #991b1b;
+}
+
+.medium {
+    background: #ffedd5;
+
+    color: #9a3412;
+}
+
+.low {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.status {
+    background: #dbeafe;
+
+    color: #1e40af;
+}
+
+.resolved {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.inprogress {
+    background: #fef3c7;
+
+    color: #92400e;
+}
+
+.pending {
+    background: #f3f4f6;
+
+    color: #374151;
+}
+/* =========================
+   MAP
+========================= */
+
+
+.map-container {
+    padding: 35px 6%;
+}
+
+.campus-map {
+    height: 500px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,99,235,0.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            rgba(37,99,235,0.04) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+
+    background-color: #f8fafc;
+
+    border: 2px solid #dbe3ee;
+
+    border-radius: 18px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.building {
+    position: absolute;
+
+    background: white;
+
+    border: 2px solid #94a3b8;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+
+    color: #475569;
+}
+
+.block-a {
+    width: 180px;
+    height: 100px;
+
+    top: 70px;
+    left: 100px;
+}
+
+.block-b {
+    width: 180px;
+    height: 100px;
+
+    top: 70px;
+    right: 100px;
+}
+
+.library {
+    width: 200px;
+    height: 100px;
+
+    bottom: 80px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.canteen {
+    width: 150px;
+    height: 80px;
+
+    bottom: 80px;
+    left: 100px;
+}
+
+.ground {
+    width: 250px;
+    height: 150px;
+
+    top: 210px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #dcfce7;
+
+    border-color: #86efac;
+}
+
+.marker {
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 14px;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,0.2);
+}
+
+.marker-red {
+    background: #dc2626;
+}
+
+.marker-orange {
+    background: #ea580c;
+}
+
+.marker-green {
+    background: #16a34a;
+}
+
+.marker-1 {
+    top: 95px;
+    left: 240px;
+}
+
+.marker-2 {
+    top: 100px;
+    right: 220px;
+}
+
+.marker-3 {
+    bottom: 120px;
+    left: 230px;
+}
+/* =========================
+   MAP
+========================= */
+
+.map-container {
+    padding: 35px 6%;
+}
+
+.campus-map {
+    height: 500px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,99,235,0.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            rgba(37,99,235,0.04) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+
+    background-color: #f8fafc;
+
+    border: 2px solid #dbe3ee;
+
+    border-radius: 18px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.building {
+    position: absolute;
+
+    background: white;
+
+    border: 2px solid #94a3b8;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+
+    color: #475569;
+}
+
+.block-a {
+    width: 180px;
+    height: 100px;
+
+    top: 70px;
+    left: 100px;
+}
+
+.block-b {
+    width: 180px;
+    height: 100px;
+
+    top: 70px;
+    right: 100px;
+}
+
+.library {
+    width: 200px;
+    height: 100px;
+
+    bottom: 80px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.canteen {
+    width: 150px;
+    height: 80px;
+
+    bottom: 80px;
+    left: 100px;
+}
+
+.ground {
+    width: 250px;
+    height: 150px;
+
+    top: 210px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #dcfce7;
+
+    border-color: #86efac;
+}
+
+.marker {
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 14px;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,0.2);
+}
+
+.marker-red {
+    background: #dc2626;
+}
+
+.marker-orange {
+    background: #ea580c;
+}
+
+.marker-green {
+    background: #16a34a;
+}
+
+.marker-1 {
+    top: 95px;
+    left: 240px;
+}
+
+.marker-2 {
+    top: 100px;
+    right: 220px;
+}
+
+.marker-3 {
+    bottom: 120px;
+    left: 230px;
+}
+
+
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty {
+    background: white;
+
+    border: 1px dashed #cbd5e1;
+
+    padding: 50px;
+
+    text-align: center;
+
+    border-radius: 14px;
+
+    color: #64748b;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111827;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 50px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .nav-links {
+        gap: 5px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .nav-links button {
+        font-size: 12px;
+
+        padding: 5px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .hero {
+        padding: 40px 25px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .filters input,
+    .filters select {
+        max-width: none;
+    }
+
+    .report-card {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-shield">
+            🛡️
+        </div>
+
+        Campus Guardian
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <button onclick="showPage('home')">
+            Home
+        </button>
+
+        <button onclick="showPage('report')">
+            Report Problem
+        </button>
+
+        <button onclick="showPage('reports')">
+            Reports
+        </button>
+
+        <button onclick="showPage('dashboard')">
+            Dashboard
+        </button>
+
+        <button onclick="showPage('map')">
+            Campus Map
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HOME PAGE
+========================= -->
+
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                SMART CAMPUS MANAGEMENT
+            </div>
+
+            <h1>
+                Make Your Campus
+                <span>Better & Safer.</span>
+            </h1>
+
+            <p>
+                Campus Guardian allows students and staff
+                to report campus problems, track their progress
+                and help administrators resolve them efficiently.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="showPage('report')">
+
+                    Report a Problem
+
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="showPage('dashboard')">
+
+                    View Dashboard
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>
+                How Campus Guardian Works
+            </h2>
+
+            <p>
+                From reporting to resolution.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📝
+                </div>
+
+                <h3>
+                    1. Report
+                </h3>
+
+                <p>
+                    Students and teachers can report broken equipment,
+                    cleanliness problems, water leakage,
+                    infrastructure issues and more.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    2. Track
+                </h3>
+
+                <p>
+                    Administrators can view, prioritize and
+                    assign reported problems to maintenance teams.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔧
+                </div>
+
+                <h3>
+                    3. Resolve
+                </h3>
+
+                <p>
+                    Maintenance teams can update the status
+                    until the problem is completely resolved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+
+<!-- =========================
+     REPORT PAGE
+========================= -->
+
+<section id="report" class="page">
+
+    <div class="form-wrapper">
+
+        <div class="form-card">
+
+            <h2>
+                Report a Campus Problem
+            </h2>
+
+            <p>
+                Help us improve the campus by reporting
+                a problem.
+            </p>
+
+
+            <form id="reportForm">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Problem Category
+                    </label>
+
+                    <select id="category" required>
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option>
+                            Electrical
+                        </option>
+
+                        <option>
+                            Plumbing
+                        </option>
+
+                        <option>
+                            Furniture
+                        </option>
+
+                        <option>
+                            Cleanliness
+                        </option>
+
+                        <option>
+                            Infrastructure
+                        </option>
+
+                        <option>
+                            Safety
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Example: Block A - Room 204"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Problem Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Describe the problem..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Priority
+                    </label>
+
+                    <select id="priority" required>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+
+                    Submit Report
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     REPORTS PAGE
+========================= -->
+
+<section id="reports" class="page">
+
+    <div class="reports-container">
+
+        <div class="page-header">
+
+            <h1>
+                Campus Reports
+            </h1>
+
+            <p>
+                View and track reported campus problems.
+            </p>
+
+        </div>
+
+
+        <div class="filters">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search reports..."
+                onkeyup="displayReports()"
+            >
+
+
+            <select
+                id="statusFilter"
+                onchange="displayReports()">
+
+                <option value="All">
+                    All Status
+                </option>
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="In Progress">
+                    In Progress
+                </option>
+
+                <option value="Resolved">
+                    Resolved
+                </option>
+
+            </select>
+
+
+            <select
+                id="priorityFilter"
+                onchange="displayReports()">
+
+                <option value="All">
+                    All Priority
+                </option>
+
+                <option value="High">
+                    High
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div
+            id="reportList"
+            class="report-list">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     DASHBOARD PAGE
+========================= -->
+
+<section id="dashboard" class="page">
+
+    <div class="dashboard">
+
+        <div class="page-header">
+
+            <h1>
+                Campus Guardian Dashboard
+            </h1>
+
+            <p>
+                Monitor the current condition of the campus.
+            </p>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Total Reports
+                </div>
+
+                <div
+                    id="totalReports"
+                    class="stat-number blue">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Pending
+                </div>
+
+                <div
+                    id="pendingReports"
+                    class="stat-number orange">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    High Priority
+                </div>
+
+                <div
+                    id="highReports"
+                    class="stat-number red">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Resolved
+                </div>
+
+                <div
+                    id="resolvedReports"
+                    class="stat-number green">
+
+                    0
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h2>
+                Campus Health Score
+            </h2>
+
+            <br>
+
+            <div
+                id="healthScore"
+                style="
+                    font-size:48px;
+                    font-weight:bold;
+                    color:#16a34a;
+                ">
+
+                100%
+
+            </div>
+
+            <p>
+                Based on the current number and priority
+                of unresolved reports.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MAP PAGE
+========================= -->
+
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        🛡️ Campus Guardian
+    </p>
+
+    <p style="margin-top:8px;color:#9ca3af;">
+        Smart Campus Problem Management System
+    </p>
+
+</footer>
+<!-- =========================
+     MAP PAGE
+========================= -->
+
+<section id="map" class="page">
+
+    <div class="map-container">
+
+        <div class="map-coming-soon">
+
+            <div class="map-icon">🗺️</div>
+
+            <h1>Campus Map</h1>
+
+            <h2>Coming Soon</h2>
+
+            <p>
+                We are working on an interactive campus map
+                to help you easily find buildings, facilities,
+                emergency points and other important locations.
+            </p>
+
+            <span>Stay tuned!</span>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<!-- Your JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+/* ===== GENERAL ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+/* ===== NAVIGATION ===== */
+
+.navbar {
+    width: 100%;
+    background: white;
+    padding: 18px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    background: #2563eb;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.logo h2 {
+    color: #1e3a8a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+/* ===== HERO SECTION ===== */
+
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    gap: 50px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+    color: #2563eb;
+}
+
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+
+.primary-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+.emergency-btn {
+    background: #dc2626;
+    color: white;
+    margin-left: 10px;
+}
+
+.emergency-btn:hover {
+    background: #b91c1c;
+}
+
+/* ===== HERO CARD ===== */
+
+.hero-card {
+    width: 350px;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-card .shield {
+    font-size: 80px;
+    margin-bottom: 15px;
+}
+
+.hero-card h2 {
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* ===== FEATURES ===== */
+
+.features {
+    padding: 70px 10%;
+    background: white;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 35px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 40px;
+}
+
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.feature-card {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* ===== EMERGENCY SECTION ===== */
+
+.emergency-section {
+    padding: 70px 10%;
+    text-align: center;
+    background: #eff6ff;
+}
+
+.emergency-section h2 {
+    font-size: 35px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+.emergency-section p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 38px;
+    }
+
+    .hero-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .feature-container {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+.delete-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+/* ===== COMING SOON ===== */
+
+.coming-soon {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: #f4f7fb;
+}
+
+.coming-soon-card {
+    width: 100%;
+    max-width: 550px;
+    background: white;
+    padding: 50px 35px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+/* ===== CAMPUS MAP ===== */
+
+.campus-map {
+    padding: 70px 10%;
+    background: #f4f7fb;
+    text-align: center;
+}
+
+.map-header h2 {
+    font-size: 35px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.map-header p {
+    color: #6b7280;
+    margin-bottom: 35px;
+}
+
+.map-coming-soon {
+    max-width: 650px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px 35px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.map-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.map-coming-soon h3 {
+    font-size: 30px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+.map-coming-soon p {
+    color: #6b7280;
+    line-height: 1.7;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.map-coming-soon span {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* ===== DELETE BUTTON ===== */
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
